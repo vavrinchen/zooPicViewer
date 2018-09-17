@@ -4,60 +4,32 @@ import "./"
 Item {
     id: root
 
-    property var id_background: id_background
-    property var id_previous: id_previous
-    property var id_next: id_next
-    property var id_indexArea: id_indexArea
 
     Image {
-        id: id_background
+        id: backgroundImg
         anchors.fill: parent
         cache: false
     }
 
-    Image {
-        id: id_previous
-        anchors {
-            left: parent.left
-            verticalCenter: parent.verticalCenter
-        }
-        source: "./model/btn_prev.svg"
-        visible: (id_indexArea.newIndex!==0&&model.imageList.length!==1)
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {
-                id_indexArea.previous()
-            }
-        }
+    PreviousBtn {
+        id: previousBtn
     }
 
-    Image {
-        id: id_next
-        anchors {
-            right: parent.right
-            verticalCenter: parent.verticalCenter
-        }
-        source: "./model/btn_next.svg"
-        visible: (id_indexArea.newIndex!==model.imageList.length-1&&model.imageList.length!==1)
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {
-                id_indexArea.next()
-            }
-        }
+    NextBtn {
+        id: nextBtn
     }
 
 
     ViewModel {
-        id: id_indexArea
+        id: viewModel
 
         height: mainRoot.height / 10
         Model{
             id: model
         }
         onIndexChanged: {
-            id_background.source = "model/" + model.imageList[id_indexArea.newIndex]
-            console.log("id_indexArea.newIndex: ", id_indexArea.newIndex)
+            viewModel.changeBackgroundPic();
+            console.log("viewModel.newIndex: ", viewModel.newIndex)
         }
     }
 }

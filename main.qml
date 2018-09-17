@@ -8,7 +8,7 @@ Window {
     height: 480
     title: qsTr("Zoo")
     property var mainRoot: root
-
+    property var viewModel: ViewModel{}
     Rectangle {
 
         id: root
@@ -16,9 +16,9 @@ Window {
 
         Component.onCompleted: {
             for(var i=0; i<model.imageList.length; i++){
-                browserView.id_indexArea.addItem(i)
+                viewModel.addItem()
             }
-            browserView.id_indexArea.next()
+            viewModel.next()
         }
 
         Model{

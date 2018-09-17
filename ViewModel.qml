@@ -4,25 +4,40 @@ Item {
     id: root
     signal indexChanged
     property int newIndex: -1
-
-    ListModel {
-        id: id_indexlist
-    }
+    property int imgCount: 0
 
 
-    function addItem(index) {
-        id_indexlist.append({"INDEX": index})
+
+    function addItem() {
+        imgCount++;
     }
 
     function next() {
-        root.newIndex = (root.newIndex + 1) % id_indexlist.count
+        root.newIndex = (root.newIndex + 1) % imgCount
+        console.log("next, index: ", root.newIndex)
         root.indexChanged()
     }
 
     function previous() {
         root.newIndex = root.newIndex - 1
+        console.log("previous, index: ", root.newIndex)
         root.indexChanged()
     }
 
-    property alias tst_id_indexlist: id_indexlist
+    function previousVisible()
+    {
+        console.log("root.newIndex: ", root.newIndex, " ,imgCount: ", imgCount);
+        return (root.newIndex !==0 && imgCount !== 1 && imgCount !== 0) ? true : false;
+    }
+
+    function nextVisible() {
+        console.log("root.newIndex: ", root.newIndex, " ,imgCount: ", imgCount);
+        return (root.newIndex !== imgCount - 1 && imgCount !== 1) ? true : false;
+
+    }
+
+    function changeBackgroundPic() {
+        backgroundImg.source = "model/" + model.imageList[root.newIndex]
+    }
+
 }
