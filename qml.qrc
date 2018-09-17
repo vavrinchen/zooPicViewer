@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ViewModel.qml</file>
+        <file>main.qml</file>
+        <file>BrowserView.qml</file>
+        <file>Model.qml</file>
+        <file>model/btn_prev.svg</file>
+        <file>model/btn_next.svg</file>
+        <file>model/cat.png</file>
+        <file>model/cow.png</file>
+        <file>model/duck.png</file>
+        <file>model/panda.png</file>
+        <file>model/tiger.png</file>
+        <file>UT/tst_ViewModel.qml</file>
+    </qresource>
+</RCC>
