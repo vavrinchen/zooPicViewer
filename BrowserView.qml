@@ -47,6 +47,13 @@ Item {
         }
     }
 
+    IndicatorView {
+        id: id_indicator
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+
+        }
+    }
 
     ViewModel {
         id: id_indexArea

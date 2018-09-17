@@ -12,5 +12,6 @@
         <file>model/panda.png</file>
         <file>model/tiger.png</file>
         <file>UT/tst_ViewModel.qml</file>
+        <file>IndicatorView.qml</file>
     </qresource>
 </RCC>
