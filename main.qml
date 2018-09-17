@@ -14,6 +14,7 @@ Window {
         id: root
         anchors.fill: parent
 
+        // 已經有 Modle {}, 為何還需要這樣的動作
         Component.onCompleted: {
             for(var i=0; i<model.imageList.length; i++){
                 browserView.id_indexArea.addItem(i)
@@ -25,6 +26,7 @@ Window {
             id:model
         }
 
+        // BrowserView { : 中間要有 space
         BrowserView{
             id:browserView
             anchors.fill: parent

@@ -5,6 +5,7 @@ Item {
     signal indexChanged
     property int newIndex: -1
 
+    // 已經有 Model {}, 不需要額外的 model 來存
     ListModel {
         id: id_indexlist
     }

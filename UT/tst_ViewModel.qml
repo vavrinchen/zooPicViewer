@@ -10,11 +10,13 @@ Item {
 
     property var viewModelPanel: viewModelLoader.active ? viewModelLoader.item : null
 
+    // 為何需要此 Window ??
     Window { id: vastWin; width: 800; height: 600}
 
     Loader {
         id: viewModelLoader
 
+        // default active value is false
         sourceComponent: ViewModel{}
     }
 
@@ -35,6 +37,8 @@ Item {
             viewModelLoader.active = false;
             spy.clear();
         }
+
+        // 請針對 accepatane criteria 來驗證你的 viewmodel, 這樣你的 viewmodel 才是根據這樣而寫的
 
         function test_addItem_index_increase()
         {
