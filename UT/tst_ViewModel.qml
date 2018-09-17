@@ -49,5 +49,12 @@ Item {
             compare(spy.count, 1);
         }
 
+        function test_newIndex_is_1_after_click_previous_newIndex_change_to_last()
+        {
+            viewModelPanel.newIndex = 1;
+            viewModelPanel.previous();
+            compare(spy.count, 1);
+            compare(viewModelPanel.newIndex, viewModelPanel.tst_id_indexlist.count);
+        }
     }
 }

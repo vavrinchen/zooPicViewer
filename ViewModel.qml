@@ -20,7 +20,14 @@ Item {
     }
 
     function previous() {
-        root.newIndex = root.newIndex - 1
+        if(root.newIndex == 0)
+        {
+            root.newIndex = id_indexlist.count -1
+        }
+        else
+        {
+            root.newIndex = root.newIndex - 1
+        }
         root.indexChanged()
     }
 

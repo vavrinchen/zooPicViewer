@@ -22,7 +22,7 @@ Item {
             verticalCenter: parent.verticalCenter
         }
         source: "./model/btn_prev.svg"
-        visible: (id_indexArea.newIndex!==0&&model.imageList.length!==1)
+
         MouseArea{
             anchors.fill: parent
             onClicked: {
@@ -38,7 +38,7 @@ Item {
             verticalCenter: parent.verticalCenter
         }
         source: "./model/btn_next.svg"
-        visible: (id_indexArea.newIndex!==model.imageList.length-1&&model.imageList.length!==1)
+
         MouseArea{
             anchors.fill: parent
             onClicked: {
