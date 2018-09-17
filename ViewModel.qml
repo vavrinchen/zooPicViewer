@@ -6,8 +6,7 @@ Item {
     property int newIndex: -1
     property int imgCount: 0
 
-
-
+    // 不需要此 function
     function addItem() {
         imgCount++;
     }
@@ -37,6 +36,7 @@ Item {
     }
 
     function changeBackgroundPic() {
+        // view model 應該不知道 backgroundImg, model 的 object
         backgroundImg.source = "model/" + model.imageList[root.newIndex]
     }
 

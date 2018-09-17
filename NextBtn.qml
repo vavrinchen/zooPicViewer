@@ -8,6 +8,7 @@ Image {
         verticalCenter: parent.verticalCenter
     }
     source: "./model/btn_next.svg"
+    // button 不知道外部 viewModel object
     visible: viewModel.nextVisible()
     MouseArea{
         anchors.fill: parent

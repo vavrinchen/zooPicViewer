@@ -8,6 +8,7 @@ Image {
         verticalCenter: parent.verticalCenter
     }
     source: "./model/btn_prev.svg"
+    // ViewModel object 不能直接用
     visible: viewModel.previousVisible()
     MouseArea{
         anchors.fill: parent

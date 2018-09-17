@@ -34,19 +34,20 @@ Item {
             spy.clear();
         }
 
-        function test_addItem_index_increase()
-        {
-            viewModelPanel.addItem();
-            viewModelPanel.addItem();
-            compare(viewModelPanel.imgCount, 2);
-        }
+        // 不需要這些 test
+//        function test_addItem_index_increase()
+//        {
+//            viewModelPanel.addItem();
+//            viewModelPanel.addItem();
+//            compare(viewModelPanel.imgCount, 2);
+//        }
 
-        function test_next_emit_indexChanged()
-        {
-            viewModelPanel.addItem();
-            viewModelPanel.next();
-            compare(spy.count, 1);
-        }
+//        function test_next_emit_indexChanged()
+//        {
+//            viewModelPanel.addItem();
+//            viewModelPanel.next();
+//            compare(spy.count, 1);
+//        }
 
         function test_previous_disappear_when_no_img()
         {
