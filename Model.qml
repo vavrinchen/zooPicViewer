@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import "./"
-Item {
+QtObject {
+    property int imgCount: imageList.length
     property var imageList: [
         "cat.png",
         "cow.png",

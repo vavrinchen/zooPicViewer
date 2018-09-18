@@ -1,42 +1,55 @@
 import QtQuick 2.0
+import QtQuick.Controls 1.4
 import "./"
 
 Item {
     id: root
+    property var viewModel: viewModel
+    property var model: Model{}
 
+    Rectangle{
+        width: root.width*0.8
+        height: root.height*0.8
 
-    Image {
-        id: backgroundImg
-        anchors.fill: parent
-        cache: false
+        anchors.horizontalCenter: root.horizontalCenter
+        anchors.verticalCenter: root.verticalCenter
+        Image {
+            id: backgroundImg
+            anchors.fill: parent
+            cache: false
+            source:  "model/" + model.imageList[viewModel.newIndex]
+        }
     }
 
-    // PreviousBtn, NextBtn 為同一個 component 就好, 把可變得提出來
-    PreviousBtn {
+    Button {
         id: previousBtn
+        anchors {
+            left: root.left
+            verticalCenter: root.verticalCenter
+        }
+
+        iconSource: "./model/btn_prev.svg"
+        visible: viewModel.previousVisible()
+        onClicked: viewModel.previous()
+
     }
 
-    NextBtn {
+    Button {
         id: nextBtn
+        anchors {
+            right: root.right
+            verticalCenter: root.verticalCenter
+        }
+
+        iconSource: "./model/btn_next.svg"
+        visible: viewModel.nextVisible()
+        onClicked: viewModel.next()
+
     }
 
 
     ViewModel {
         id: viewModel
-
-        // 不要直接 access parent id
-        height: mainRoot.height / 10
-
-        // 外面的人不需要知道 model 是什麼
-        Model{
-            id: model
-        }
-
-        // 裡面決定現在的 image 要如何
-        onIndexChanged: {
-            viewModel.changeBackgroundPic();
-            console.log("viewModel.newIndex: ", viewModel.newIndex)
-        }
     }
 }
 

@@ -3,41 +3,30 @@ import QtQuick 2.0
 Item {
     id: root
     signal indexChanged
-    property int newIndex: -1
-    property int imgCount: 0
+    property int newIndex: 0
+    property var model: Model{}
+    property int imgCount: model.imgCount
 
-    // 不需要此 function
-    function addItem() {
-        imgCount++;
-    }
 
     function next() {
         root.newIndex = (root.newIndex + 1) % imgCount
         console.log("next, index: ", root.newIndex)
-        root.indexChanged()
     }
 
     function previous() {
         root.newIndex = root.newIndex - 1
         console.log("previous, index: ", root.newIndex)
-        root.indexChanged()
     }
 
     function previousVisible()
     {
-        console.log("root.newIndex: ", root.newIndex, " ,imgCount: ", imgCount);
-        return (root.newIndex !==0 && imgCount !== 1 && imgCount !== 0) ? true : false;
+        console.log("root.newIndex, imgCount: ", root.newIndex, imgCount)
+        return (root.newIndex !==0 && imgCount !== 1 ) ? true : false;
     }
 
     function nextVisible() {
-        console.log("root.newIndex: ", root.newIndex, " ,imgCount: ", imgCount);
         return (root.newIndex !== imgCount - 1 && imgCount !== 1) ? true : false;
-
     }
 
-    function changeBackgroundPic() {
-        // view model 應該不知道 backgroundImg, model 的 object
-        backgroundImg.source = "model/" + model.imageList[root.newIndex]
-    }
 
 }

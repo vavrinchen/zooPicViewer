@@ -7,31 +7,14 @@ Window {
     width: 640
     height: 480
     title: qsTr("Zoo")
-//    property var mainRoot: root
-//    property var viewModel: ViewModel{}
-    Rectangle {
 
-        id: root
+    BrowserView {
+        id: browserView
+        width: parent.width
+        height: parent.height
         anchors.fill: parent
-
-        // 為什麼會有這段 ?
-//        Component.onCompleted: {
-//            for(var i=0; i<model.imageList.length; i++){
-//                viewModel.addItem()
-//            }
-//            viewModel.next()
-//        }
-
-//        Model{
-//            id:model
-//        }
-
-        BrowserView{ //BrowserView {
-            id:browserView  //id: browserView
-            anchors.fill: parent
-        }
-
     }
+
 
 
 }

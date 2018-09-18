@@ -8,7 +8,7 @@ Item {
     width: 800
     height: 500
 
-    property var viewModelPanel: viewModelLoader.active ? viewModelLoader.item : null
+    property var testItem: viewModelLoader.active ? viewModelLoader.item : null
 
     Loader {
         id: viewModelLoader
@@ -16,10 +16,8 @@ Item {
         sourceComponent: ViewModel{}
     }
 
-    SignalSpy { id: spy; target: viewModelPanel; signalName: "indexChanged"; }
-
     TestCase {
-        name: "ViewModelPanel"
+        name: "ViewModel"
         when: windowShown
 
         function init()
@@ -31,52 +29,33 @@ Item {
         function cleanup()
         {
             viewModelLoader.active = false;
-            spy.clear();
         }
 
-        // 不需要這些 test
-//        function test_addItem_index_increase()
-//        {
-//            viewModelPanel.addItem();
-//            viewModelPanel.addItem();
-//            compare(viewModelPanel.imgCount, 2);
-//        }
 
-//        function test_next_emit_indexChanged()
-//        {
-//            viewModelPanel.addItem();
-//            viewModelPanel.next();
-//            compare(spy.count, 1);
-//        }
-
-        function test_previous_disappear_when_no_img()
+        function test_previousBtn_disappear_when_no_img()
         {
-            compare(viewModelPanel.previousVisible(), false);
+            testItem.imgCount = 0;
+            compare(testItem.previousVisible(), false);
         }
 
-        function test_previous_and_next_disappear_when_1_img()
+        function test_previousBtn_and_nextBtn_disappear_when_1_img()
         {
-            viewModelPanel.addItem();
-            compare(viewModelPanel.previousVisible(), false);
-            compare(viewModelPanel.nextVisible(), false);
+            testItem.imgCount = 1;
+            compare(testItem.previousVisible(), false);
+            compare(testItem.nextVisible(), false);
         }
 
-        function test_previous_show_when_not_first_img()
+        function test_previousBtn_show_when_not_first_img()
         {
-            viewModelPanel.addItem();
-            viewModelPanel.addItem();
-            viewModelPanel.next();
-            viewModelPanel.next();
-            compare(viewModelPanel.previousVisible(), true);
+            testItem.next();
+            compare(testItem.previousVisible(), true);
         }
 
-        function test_next_disappear_when_last_img()
+        function test_nextBtn_disappear_when_last_img()
         {
-            viewModelPanel.addItem();
-            viewModelPanel.addItem();
-            viewModelPanel.next();
-            viewModelPanel.next();
-            compare(viewModelPanel.nextVisible(), false);
+            testItem.imgCount = 2;
+            testItem.next();
+            compare(testItem.nextVisible(), false);
         }
 
 

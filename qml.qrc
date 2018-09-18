@@ -12,7 +12,5 @@
         <file>model/panda.png</file>
         <file>model/tiger.png</file>
         <file>UT/tst_ViewModel.qml</file>
-        <file>PreviousBtn.qml</file>
-        <file>NextBtn.qml</file>
     </qresource>
 </RCC>
