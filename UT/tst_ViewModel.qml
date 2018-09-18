@@ -32,12 +32,6 @@ Item {
         }
 
 
-        function test_previousBtn_disappear_when_no_img()
-        {
-            testItem.imgCount = 0;
-            compare(testItem.previousVisible(), false);
-        }
-
         function test_previousBtn_and_nextBtn_disappear_when_1_img()
         {
             testItem.imgCount = 1;
@@ -51,18 +45,29 @@ Item {
             compare(testItem.previousVisible(), true);
         }
 
-        function test_nextBtn_disappear_when_last_img()
-        {
-            testItem.imgCount = 2;
-            testItem.next();
-            compare(testItem.nextVisible(), false);
-        }
 
         function test_second_img_indexIndicatorText_show_2_over_5()
         {
             testItem.imgCount = 5;
             testItem.next();
             compare(testItem.getIndicatorText(), "2/5");
+        }
+
+        function test_first_img_click_previousBtn_change_to_last_img()
+        {
+            testItem.imgCount = 5;
+            compare(testItem.previousVisible(), true);
+            testItem.previous();
+            compare(testItem.getIndicatorText(), "5/5");
+        }
+
+        function test_last_img_click_nextBtn_change_to_first_img()
+        {
+            testItem.imgCount = 2;
+            testItem.next();
+            compare(testItem.nextVisible(), true);
+            testItem.next();
+            compare(testItem.getIndicatorText(), "1/2");
         }
 
 

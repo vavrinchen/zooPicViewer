@@ -14,18 +14,25 @@ Item {
     }
 
     function previous() {
-        root.newIndex = root.newIndex - 1
+        if(root.newIndex == 0)
+        {
+            root.newIndex = imgCount -1
+        }
+        else
+        {
+            root.newIndex = root.newIndex - 1
+        }
         console.log("previous, index: ", root.newIndex)
     }
 
     function previousVisible()
     {
         console.log("root.newIndex, imgCount: ", root.newIndex, imgCount)
-        return (root.newIndex !==0 && imgCount !== 1 );
+        return  imgCount !== 1;
     }
 
     function nextVisible() {
-        return (root.newIndex !== imgCount - 1 && imgCount !== 1);
+        return imgCount !== 1;
     }
 
     function getIndicatorText() {
