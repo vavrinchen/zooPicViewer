@@ -58,6 +58,12 @@ Item {
             compare(testItem.nextVisible(), false);
         }
 
+        function test_second_img_indexIndicatorText_show_2_over_5()
+        {
+            testItem.imgCount = 5;
+            testItem.next();
+            compare(testItem.getIndicatorText(), "2/5");
+        }
 
 
     }

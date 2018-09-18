@@ -46,6 +46,14 @@ Item {
 
     }
 
+    IndicatorView {
+        id: indicatorView
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+        }
+        indexIndicatorText: viewModel.getIndicatorText()
+
+    }
 
     ViewModel {
         id: viewModel

@@ -28,5 +28,8 @@ Item {
         return (root.newIndex !== imgCount - 1 && imgCount !== 1);
     }
 
+    function getIndicatorText() {
+        return (root.newIndex+1) + "/" + imgCount
+    }
 
 }
