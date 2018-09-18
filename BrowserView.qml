@@ -5,7 +5,6 @@ import "./"
 Item {
     id: root
     property var viewModel: viewModel
-    property var model: Model{}  // viewmodel 不就有提供 model 了, 應該這多餘的, 如果這個 model 跟 viewmodel 提供得不一樣, 不就會亂掉
 
     Rectangle{
         width: root.width*0.8
@@ -16,9 +15,8 @@ Item {
         Image {
             id: backgroundImg
             anchors.fill: parent
-            cache: false
-            // by 上面的 comment, 如果都是 viewmodel 提供的, 是否有其他方式來表達
-            source:  "model/" + model.imageList[viewModel.newIndex]
+            cache: false 
+            source:  "model/" + viewModel.model.imageList[viewModel.newIndex]
         }
     }
 

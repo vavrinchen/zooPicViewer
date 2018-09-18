@@ -21,14 +21,11 @@ Item {
     function previousVisible()
     {
         console.log("root.newIndex, imgCount: ", root.newIndex, imgCount)
-
-        // 好像不用 ?:, 因為前面的結果就 true or false 了
-        return (root.newIndex !==0 && imgCount !== 1 ) ? true : false;
+        return (root.newIndex !==0 && imgCount !== 1 );
     }
 
     function nextVisible() {
-        // 好像不用 ?:, 因為前面的結果就 true or false 了
-        return (root.newIndex !== imgCount - 1 && imgCount !== 1) ? true : false;
+        return (root.newIndex !== imgCount - 1 && imgCount !== 1);
     }
 
 

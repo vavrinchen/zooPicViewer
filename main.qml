@@ -15,6 +15,4 @@ Window {
         anchors.fill: parent
     }
 
-
-
 }
