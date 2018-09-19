@@ -28,7 +28,7 @@ Item {
         }
 
         iconSource: "./model/btn_prev.svg"
-        visible: viewModel.previousVisible()
+//        visible: viewModel.previousVisible() 應該不用了, 多的 function 要 remove
         onClicked: viewModel.previous()
 
     }
@@ -41,7 +41,7 @@ Item {
         }
 
         iconSource: "./model/btn_next.svg"
-        visible: viewModel.nextVisible()
+//        visible: viewModel.nextVisible()
         onClicked: viewModel.next()
 
     }

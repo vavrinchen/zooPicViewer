@@ -9,18 +9,19 @@ Item {
 
 
     function next() {
-        root.newIndex = (root.newIndex + 1) % imgCount
+        root.newIndex = (root.newIndex + 1) % imgCount;
         console.log("next, index: ", root.newIndex)
     }
 
     function previous() {
         if(root.newIndex == 0)
         {
-            root.newIndex = imgCount -1
+            root.newIndex = imgCount - 1;
         }
         else
         {
-            root.newIndex = root.newIndex - 1
+//            root.newIndex++;
+            root.newIndex = root.newIndex - 1;
         }
         console.log("previous, index: ", root.newIndex)
     }
@@ -36,7 +37,7 @@ Item {
     }
 
     function getIndicatorText() {
-        return (root.newIndex+1) + "/" + imgCount
+        return (root.newIndex+1) + "/" + imgCount;
     }
 
 }
