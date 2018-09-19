@@ -16,6 +16,7 @@ Item {
             id: backgroundImg
             anchors.fill: parent
             cache: false 
+            // refactory: 改成外面不用知道怎麼取的方式
             source:  "model/" + viewModel.model.imageList[viewModel.newIndex]
         }
     }
@@ -28,6 +29,7 @@ Item {
         }
 
         iconSource: "./model/btn_prev.svg"
+        // 是否能用 property binding 就用, 避免多的 function call
         visible: viewModel.previousVisible()
         onClicked: viewModel.previous()
 
@@ -40,7 +42,7 @@ Item {
             verticalCenter: root.verticalCenter
         }
 
-        iconSource: "./model/btn_next.svg"
+        iconSource: "./model/btn_next.svg"        
         visible: viewModel.nextVisible()
         onClicked: viewModel.next()
 
@@ -51,6 +53,7 @@ Item {
         anchors {
             horizontalCenter: parent.horizontalCenter
         }
+        // 是否能用 property binding 就用, 避免多的 function call
         indexIndicatorText: viewModel.getIndicatorText()
 
     }
